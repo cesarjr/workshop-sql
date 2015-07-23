@@ -85,3 +85,11 @@ where
   ven_emissao >= '01.02.2015' and
   ven_emissao <= '20.02.2015'
 ```
+
+#### Desafios
+
+* Listar o código, o documento, o vencimento e o valor dos compromissos que vencem em março de 2015.
+* Listar todas as pessoas de CANELINHA.
+* Listar a emissão, descrição, código da pessoa e valor dos compromissos emitidos em 08/07/2015 para a pessoa 103454.
+* Listar todas as pessoas modificadas pelo usuário 11.
+* Listar todas as pessoas modifcadas no dia 27/05/2015.
