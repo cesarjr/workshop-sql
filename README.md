@@ -89,6 +89,20 @@ where
 #### Desafios
 
 * Listar o código, o documento, o vencimento e o valor dos compromissos que vencem em março de 2015.
+
+```sql
+select
+  comp_codigo,
+  comp_documento,
+  comp_vencimento,
+  comp_vlrnominal
+from
+  compromissos
+where
+  comp_vencimento >= '01.03.2015' and
+  comp_vencimento <= '31.03.2015'
+```
+
 * Listar todas as pessoas de CANELINHA.
 * Listar a emissão, descrição, código da pessoa e valor dos compromissos emitidos em 08/07/2015 para a pessoa 103454.
 * Listar todas as pessoas modificadas pelo usuário 11.
