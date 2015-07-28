@@ -104,6 +104,70 @@ where
 ```
 
 * Listar todas as pessoas de CANELINHA.
+
+```sql
+select
+  pes_codigo,
+  pes_nome,
+  pes_cidade
+from
+  pessoas
+where
+  pes_cidade = 'CANELINHA'
+```
+
 * Listar a emissão, descrição, código da pessoa e valor dos compromissos emitidos em 08/07/2015 para a pessoa 103454.
+
+```sql
+select
+  comp_emissao,
+  comp_descricao,
+  pes_codigo,
+  comp_vlrnominal
+from
+  compromissos
+where
+  comp_emissao = '08.07.2015' and
+  pes_codigo = 103454
+```
+
 * Listar todas as pessoas modificadas pelo usuário 11.
+
+```sql
+select
+  pes_codigo,
+  pes_nome,
+  pes_alt_usuario
+from
+  pessoas
+where
+  pes_alt_usuario = 11
+```
+
 * Listar todas as pessoas modifcadas no dia 27/05/2015.
+
+```sql
+select
+  pes_codigo,
+  pes_nome,
+  pes_alt_tempo
+from
+  pessoas
+where
+  pes_alt_tempo >= '27.05.2015 00:00:00' and
+  pes_alt_tempo <= '27.05.2015 23:59:59'
+```
+
+ou
+
+```sql
+select
+  pes_codigo,
+  pes_nome,
+  pes_alt_tempo
+from
+  pessoas
+where
+  pes_alt_tempo >= '27.05.2015' and
+  pes_alt_tempo < '28.05.2015'
+```
