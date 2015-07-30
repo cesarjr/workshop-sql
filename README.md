@@ -171,3 +171,71 @@ where
   pes_alt_tempo >= '27.05.2015' and
   pes_alt_tempo < '28.05.2015'
 ```
+
+### Apelidos
+
+```sql
+select
+  p.pes_codigo,
+  p.pes_nome
+from
+  pessoas p
+```
+
+ou
+
+```sql
+select
+  pessoas.pes_codigo,
+  pessoas.pes_nome
+from
+  pessoas
+```
+
+### Join
+
+```sql
+select
+  p.pes_codigo,
+  p.pes_nome,
+  p.cid_codigo,
+  c.cid_nome,
+  c.uf_codigo
+from
+  pessoas p
+  join
+    cidades c
+  on
+    p.cid_codigo = c.cid_codigo
+```
+
+```sql
+select
+  g.grup_codigo,
+  g.grup_nome,
+  s.subg_codigo,
+  s.subg_nome
+from
+  subgrupos s
+  join
+    grupos g
+  on
+    s.grup_codigo = g.grup_codigo
+```
+
+#### Desafios
+
+* Listar o código do produto, nome do produto, código do subgrupo e nome do subgrupo dos produtos.
+
+* Listar o código da venda, data de emissão e nome do cliente das vendas de fevereiro de 2015.
+
+
+
+
+
+
+### What's next
+
+* left join
+* order by
+* like
