@@ -229,6 +229,34 @@ from
 
 * Listar o código da venda, data de emissão e nome do cliente das vendas de fevereiro de 2015.
 
+### Join usando mais de uma tabela
+
+```sql
+select
+  p.prod_codigo,
+  p.prod_nome,
+  s.subg_nome,
+  g.grup_nome
+from
+  produtos p
+  join
+    subgrupos s
+  on
+    p.subg_codigo = s.subg_codigo
+  join
+    grupos g
+  on
+    s.grup_codigo = g.grup_codigo
+```
+
+#### Desafio
+
+* Use a pesquisa acima e filtre pelo grupo 1.
+
+* Liste a emissão da venda, o nome do cliente, o nome do produto e a quantidade do produto vendido para as vendas emitidas no mês de 04/2015.
+
+
+
 
 
 
