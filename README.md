@@ -323,10 +323,81 @@ from
 >
 > vendas_itens -> produtos
 
+```sql
+select
+  v.ven_emissao,
+  p.pes_nome,
+  vi.venit_quantidade,
+  pr.prod_nome
+from
+  vendas v
+  join
+    pessoas p
+  on
+    v.pes_codigo_cliente = p.pes_codigo
+  join
+    vendas_itens vi
+  on
+    v.ven_codigo = vi.ven_codigo
+  join
+    produtos pr
+  on
+    vi.prod_codigo = pr.prod_codigo
+where
+  v.ven_emissao >= '01.04.2015' and
+  v.ven_emissao < '01.05.2015'
+```
+
+### Order by
+
+```sql
+select
+  p.prod_codigo,
+  p.prod_nome
+from
+  produtos p
+order by
+  p.prod_codigo
+
+select
+  c.cor_codigo,
+  c.cor_nome
+from
+  cores c
+order by
+  c.cor_codigo desc
+```
+
+```sql
+select
+  v.ven_emissao,
+  v.pes_codigo_cliente,
+  p.pes_nome
+from
+  vendas v
+  join
+    pessoas p
+  on
+    v.pes_codigo_cliente = p.pes_codigo
+order by
+  p.pes_nome, v.ven_emissao desc
+```
+
+#### Desafio
+
+* Listar o código e o nome do produto. Ordenar pelo nome de forma descendente.
+
+* Listar o código e o nome da pessoa, a cidade e a uf (vindas da tabela de cidades) e ordenar primeiro pela uf e depois pela cidade.
+
+* Listar quem nasceu no ano de 1978.
+
+* Listar os itens orçados cancelados. Os campos devem ser o código do cliente, o nome do ciente, o código do produto, nome do produto, quantidade orçada.
+
+* Liste a árvore de operações: código do centro, nome do centro, código do grupo financeiro, nome do grupo financeiro, código da categoria, nome da categoria, código da subcategoria, nome da subcategoria, código da operação, nome da operação. A ordenação deve ser por: nome do centro, nome do grupo, nome da categoria, nome da subcategoria e nome da operação.
+
 ### What's next
 
 * left join
-* order by
 * like
 * count
 * sum
