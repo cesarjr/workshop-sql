@@ -395,11 +395,40 @@ order by
 
 * Liste a árvore de operações: código do centro, nome do centro, código do grupo financeiro, nome do grupo financeiro, código da categoria, nome da categoria, código da subcategoria, nome da subcategoria, código da operação, nome da operação. A ordenação deve ser por: nome do centro, nome do grupo, nome da categoria, nome da subcategoria e nome da operação.
 
+### Count
+
+* Quantas pessoas temos no banco de dados?
+
+```sql
+/* O sistema contará a quantidade    */
+/* de p.pes_codigo que ele encontrar */
+/* no banco de dados.                */
+
+select
+  count(p.pes_codigo)
+from
+  pessoas p
+```
+* Quantos produtos temos no banco de dados?
+```sql
+select
+  count(p.prod_nome)
+from
+  produtos p
+```
+
+#### Desafios
+
+* Quantas cores temos cadastradas no sistema?
+* Quantos produtos da cor "ABACATE" temos no sistema?
+* Quantas pessoas temos no sistema que são do sexo masculino e que são clientes?
+* Quantas pessoas temos no sistema que são do sexo feminino e que são clientes?
+* Quantos fornecedores temos cadastrados no sistema?
+
 ### What's next
 
 * left join
 * like
-* count
 * sum
 * max
 * min
@@ -410,3 +439,4 @@ order by
   * min
 * subselect
 * select from select
+* extract (data)
