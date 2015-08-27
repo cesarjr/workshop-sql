@@ -395,6 +395,44 @@ order by
 
 * Liste a árvore de operações: código do centro, nome do centro, código do grupo financeiro, nome do grupo financeiro, código da categoria, nome da categoria, código da subcategoria, nome da subcategoria, código da operação, nome da operação. A ordenação deve ser por: nome do centro, nome do grupo, nome da categoria, nome da subcategoria e nome da operação.
 
+```sql
+select
+  o.cen_codigo,
+  cen.cen_nome,
+  o.gruf_codigo,
+  gruf.gruf_nome,
+  o.cat_codigo,
+  cat.cat_nome,
+  o.subc_codigo,
+  subc.subc_nome,
+  o.ope_codigo,
+  o.ope_nome
+from
+  operacoes o
+  join
+    centros_custos cen
+  on
+    o.cen_codigo = cen.cen_codigo
+  join
+    grupos_financeiros gruf
+  on
+    o.gruf_codigo = gruf.gruf_codigo
+  join
+    categorias cat
+  on
+    o.cat_codigo = cat.cat_codigo
+  join
+    subcategorias subc
+  on
+    o.subc_codigo = subc.subc_codigo
+order by
+  cen.cen_nome,
+  gruf.gruf_nome,
+  cat.cat_nome,
+  subc.subc_nome,
+  o.ope_nome
+```
+
 ### Count
 
 * Quantas pessoas temos no banco de dados?
@@ -425,6 +463,26 @@ from
 * Quantas pessoas temos no sistema que são do sexo feminino e que são clientes?
 * Quantos fornecedores temos cadastrados no sistema?
 
+### Campos calculados
+
+Você pode fazer contas no seu select. Veja só:
+
+```
+select
+  p.prod_codigo,
+  p.prod_codigo + 10 codigo_soma_10,
+  p.prod_codigo * 2 codigo_vezes_2,
+  ((p.prod_codigo * 3)+5)/2 conta_louca
+  (p.prod_codigo * p.prod_codigo) produto_ao_quadrado
+from
+  produtos p
+```
+
+#### Desafio
+
+* Listar o nome do produto, a quantidade, o valor unitário (preço de venda) e o valor total de cada item vendido em 28/05/2015. Nomeie os campos para quantidade, unitario e total respectivamente. Ordene do maior valor total para o menor. Dica: o valor total = quantidade * valor unitário.
+* Qual foi o valor total vendido em 28/05/2015? Dica: a pesquisa acima ajuda bastante. Você terá que usar o sum.
+
 ### What's next
 
 * left join
@@ -440,3 +498,4 @@ from
 * subselect
 * select from select
 * extract (data)
+* order by por número do campo
