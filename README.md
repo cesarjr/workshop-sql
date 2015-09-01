@@ -447,6 +447,7 @@ select
 from
   pessoas p
 ```
+
 * Quantos produtos temos no banco de dados?
 ```sql
 select
@@ -467,7 +468,7 @@ from
 
 Você pode fazer contas no seu select. Veja só:
 
-```
+```sql
 select
   p.prod_codigo,
   p.prod_codigo + 10 codigo_soma_10,
@@ -481,15 +482,33 @@ from
 #### Desafio
 
 * Listar o nome do produto, a quantidade, o valor unitário (preço de venda) e o valor total de cada item vendido em 28/05/2015. Nomeie os campos para quantidade, unitario e total respectivamente. Ordene do maior valor total para o menor. Dica: o valor total = quantidade * valor unitário.
-* Qual foi o valor total vendido em 28/05/2015? Dica: a pesquisa acima ajuda bastante. Você terá que usar o sum.
+
+### Sum, max e min
+
+```sql
+select
+  max(p.prod_codigo) maior_codigo,
+  min(p.prod_codigo) menor_codigo,
+  sum(p.prod_codigo) soma_dos_codigos,
+  count(p.prod_codigo) quantidade_de_codigos
+from
+  produtos p
+```
+
+#### Desafio
+* Qual foi o valor total vendido em 28/05/2015?
+* Quantas vendas canceladas ocorreram entre 05/04/2015 e 13/04/2015?
+* Qual o produto mais caro do cadastro?
+* Qual o produto mais barato do cadastro?
+* Quantas parcelas a receber existem no sistema?
+* Qual o valor total a receber?
+* Qual o valor total a pagar?
+* Quanto for recebido em janeiro de 2014?
 
 ### What's next
 
 * left join
 * like
-* sum
-* max
-* min
 * group by
   * count
   * sum
